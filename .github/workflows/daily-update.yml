@@ -1,9 +1,12 @@
 name: Daily Repo Update
 
+permissions:
+  contents: write
+
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs every day at 9:00 AM UTC
-  workflow_dispatch:     # Allows manual trigger
+    - cron: '0 9 * * *'
+  workflow_dispatch:
 
 jobs:
   commit-job:
@@ -13,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          persist-credentials: false  # Important! Allows us to push with a token
+          persist-credentials: false
 
       - name: Add daily update - 23f2003477@ds.study.iitm.ac.in
         run: |

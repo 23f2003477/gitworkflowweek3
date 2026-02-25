@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # Important! Allows us to push with a token
 
       - name: Add daily update - 23f2003477@ds.study.iitm.ac.in
         run: |
